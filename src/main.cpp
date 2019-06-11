@@ -1,6 +1,9 @@
 /* Standard libraries */
 #include <iostream>
 
+/* Implemented headers */
+#include "../inc/functions.hpp"
+
 /* Third party libraries */
 #include "../inc/json.hpp"
 
