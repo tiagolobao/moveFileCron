@@ -1,7 +1,16 @@
 /* Standard libraries */
 #include <iostream>
 
+/* Third party libraries */
+#include "../inc/json.hpp"
+
 int main(){
-  std::cout << "Hello World" << std::endl;
+
+  /* Load config file */
+  std::cout << "Loading config file..." << std::endl;
+  std::ifstream ifile("config.json");
+  nlohmann::json config;
+  ifile >> config;
+  std::cout << "Time set to " << config["time"] << " seconds" << std::endl;
   return 0;
 }
