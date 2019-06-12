@@ -24,7 +24,6 @@ int main(){
 
   /* Only finish when process is killed */
   while(1){
-    std::cout << std::endl;
 
     /* Timer */
     mvc::wait(config["time"]);

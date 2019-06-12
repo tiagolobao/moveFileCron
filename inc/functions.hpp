@@ -23,9 +23,9 @@ namespace mvc{
 
   namespace fileList_options{
     enum{
-      all,
-      newest,
-      oldest
+      all, //Returns all files that mathces
+      newest, //Returns only the newest one
+      oldest //Returns only the oldest one
     };
   }
 
