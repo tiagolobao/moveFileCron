@@ -29,7 +29,12 @@ int main(){
     );
 
     for(std::string file : matches){
-      std::cout << "Matches: " << file << std::endl;
+      std::cout << "Matches: " << (std::string) config["directory"]["from"] + file << std::endl;
+      mvc::move(
+        (std::string) config["directory"]["from"],
+        (std::string) config["directory"]["to"],
+        file
+      );
     }
 
     std::cout << "Step done" << std::endl;

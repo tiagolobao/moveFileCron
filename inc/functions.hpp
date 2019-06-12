@@ -7,6 +7,7 @@
 #include <vector>
 #include <ctime>
 #include <regex>
+#include <iostream>
 
 /* Filesystem libraries */
 #if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include) && __has_include(<filesystem>)
@@ -47,7 +48,7 @@ namespace mvc{
     @return => void
      This function moves a file from one directory to another
   ********************************************************/
-  void move(std::string source, std::string destination);
+  void move(std::string source, std::string destination, std::string fileName);
 }
 
 #endif
