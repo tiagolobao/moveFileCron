@@ -1,5 +1,7 @@
 /* Standard libraries */
 #include <iostream>
+#include <string>
+#include <vector>
 
 /* Implemented headers */
 #include "../inc/functions.hpp"
@@ -18,7 +20,17 @@ int main(){
 
   while(1){
     std::cout << std::endl;
+
     mvc::wait(config["time"]);
+
+    std::vector<std::string> matches = mvc::getFileList(
+      config["regex"],
+      config["directory"]["from"]
+    );
+
+    for(std::string file : matches){
+      std::cout << "Matches: " << file << std::endl;
+    }
 
     std::cout << "Step done" << std::endl;
   }
