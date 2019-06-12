@@ -5,15 +5,7 @@
 /*------------------------------------------------------------------*/
 void mvc::wait(int t){
 
-    time_t startTime,nowTime;
-    double seconds;
-
-    time(&startTime);
-
-    do{
-      time(&nowTime);
-      seconds = difftime(nowTime,startTime);
-    }while(seconds < (double) t);
+  std::this_thread::sleep_for (std::chrono::seconds(t));
 
 }
 

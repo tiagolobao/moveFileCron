@@ -5,7 +5,7 @@
 /* Standard libraries */
 #include <string>
 #include <vector>
-#include <ctime>
+#include <thread>
 #include <chrono>
 #include <regex>
 #include <iostream>
