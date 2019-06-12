@@ -32,7 +32,8 @@ int main(){
     /* Get list of files in source directory */
     std::vector<std::string> matches = mvc::getFileList(
       config["regex"],
-      config["directory"]["from"]
+      config["directory"]["from"],
+      mode
     );
 
     /* Move each file that matched */

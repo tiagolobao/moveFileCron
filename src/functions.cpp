@@ -37,6 +37,46 @@ std::vector<std::string> mvc::getFileList(std::string exp, std::string path){
 
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
+std::vector<std::string> mvc::getFileList(std::string exp, std::string path, int option){
+
+  if( option == mvc::fileList_options::all )
+    return mvc::getFileList(exp, path);
+
+  std::vector<std::string> matches = {};
+  std::smatch m;
+  fs::file_time_type lastTime;
+  if( option == mvc::fileList_options::newest )
+    lastTime = fs::file_time_type::min();
+  else if( option == mvc::fileList_options::oldest )
+    lastTime = fs::file_time_type::max();
+
+  for ( const auto & entry : fs::directory_iterator(path) ){
+    std::string file = entry.path().filename().generic_string();
+    std::regex_search( file, m, std::regex(exp) );
+
+    if( !m.empty() ){
+      fs::file_time_type fileTime = fs::last_write_time(entry.path());
+      bool chooseFlag = false;
+      if( option == mvc::fileList_options::newest ){
+        if( fileTime > lastTime ) chooseFlag = true;
+      }
+      else if( option == mvc::fileList_options::oldest ){
+        if( fileTime < lastTime ) chooseFlag = true;
+      }
+      if(chooseFlag){ //Change choosen file
+        lastTime = fileTime;
+        matches = {file};
+      }
+    }
+
+
+  }
+
+  return matches;
+}
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
 int mvc::createFileList_option(std::string mode){
 
   int value = 0;
