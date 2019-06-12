@@ -1,8 +1,0 @@
-{
-  "time": 5,
-  "regex": "cool.*\\.txt",
-  "directory": {
-    "from": "test/temp/destinationPath/",
-    "to": "test/temp/sourcePath/"
-  }
-}
