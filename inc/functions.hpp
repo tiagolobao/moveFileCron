@@ -20,6 +20,14 @@ namespace fs = ghc::filesystem;
 
 namespace mvc{
 
+  namespace fileList_options{
+    enum{
+      all,
+      newest,
+      oldest
+    };
+  }
+
   /**********************************************************
     Function wait
     @arg =>
@@ -35,10 +43,22 @@ namespace mvc{
     @arg =>
       (string) regular expression
       (string) directory to search
+      (boolean) option to return only most recent [optional]
     @return => (std::vector<string>) List of files
      This function searchs for files in a directory that matches a regex
   ********************************************************/
   std::vector<std::string> getFileList(std::string exp, std::string path);
+  std::vector<std::string> getFileList(std::string exp, std::string path, int option);
+
+  /**********************************************************
+    Function createFileList_option()
+    @arg =>
+      (string) verbose configuration
+    @return => (int) respective operation mode integer value
+    This function returns the rigth value ot a given config string.
+    Used to parse a config file.
+  ********************************************************/
+  int createFileList_option(std::string mode);
 
   /**********************************************************
     Function getFileList

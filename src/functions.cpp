@@ -37,6 +37,28 @@ std::vector<std::string> mvc::getFileList(std::string exp, std::string path){
 
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
+int mvc::createFileList_option(std::string mode){
+
+  int value = 0;
+  try{
+    if( mode == "all" )
+      value = mvc::fileList_options::all;
+    else if( mode == "newest" )
+      value = mvc::fileList_options::newest;
+    else if( mode == "oldest" )
+      value = mvc::fileList_options::oldest;
+    else
+      throw std::invalid_argument( "Invalid operation mode" );
+  } catch ( const std::invalid_argument& e ) {
+    std::cout << "Error to create fileList_options => " << e.what() << std::endl;
+    exit(1);
+  }
+
+  return value;
+}
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
 void mvc::move(std::string source, std::string destination, std::string fileName){
 
   std::string newFilePath = destination + fileName;

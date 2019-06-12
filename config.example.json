@@ -1,4 +1,5 @@
 {
+  "mode": "all",
   "time": 60,
   "regex": "cool.*\\.txt",
   "directory": {

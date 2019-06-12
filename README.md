@@ -16,6 +16,7 @@ make #compile
 * Change configuration file (config.json)
 ```javascript
 {
+  "mode": "all", //Operation mode
   "time": 60, //Timer
   "regex": "cool.*\\.txt", //Regex string to find files
   "directory": {

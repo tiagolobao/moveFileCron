@@ -18,6 +18,10 @@ int main(){
   ifile >> config;
   std::cout << "Time set to " << config["time"] << " seconds" << std::endl;
 
+  /* operation mode selection */
+  int mode = mvc::createFileList_option( (std::string) config["mode"] );
+  std::cout << "Operation mode set to: " << config["mode"] << std::endl;
+
   /* Only finish when process is killed */
   while(1){
     std::cout << std::endl;
