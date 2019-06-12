@@ -2,14 +2,14 @@
 #ifndef MVC_FUNCTIONS
 #define MVC_FUNCTIONS
 
+/* Standard libraries */
 #include <string>
-#include <fstream>
 #include <vector>
 #include <ctime>
 #include <regex>
 #include <iostream>
 
-/* Filesystem libraries */
+/* Third party filesystem library */
 #if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include) && __has_include(<filesystem>)
 #include <filesystem>
 namespace fs = std::filesystem;
@@ -45,6 +45,7 @@ namespace mvc{
     @arg =>
       (string) path to source file to transfer
       (string) path to destination
+      (string) filename to transfer
     @return => void
      This function moves a file from one directory to another
   ********************************************************/

@@ -1,7 +1,7 @@
 
 # moveFileCron
 IFE Coding Challange.
-(P.S. MVC is not Model-View-Controller)
+(P.S. MVC is not Model-View-Controller in this context)
 
 Transfer files between directories based on the filename. Checked with Regex and transferred periodically.
 
@@ -9,12 +9,12 @@ Transfer files between directories based on the filename. Checked with Regex and
 
 * Compile
 ```bash
-cd move_to_path
+cd path/to/source #change directory
 cmake . #create make file
 make #compile
 ```
 * Change configuration file (config.json)
-```json
+```javascript
 {
   "time": 60, //Timer
   "regex": "cool.*\\.txt", //Regex string to find files
