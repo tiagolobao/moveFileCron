@@ -3,7 +3,7 @@
   "time": 60,
   "regex": "cool.*\\.txt",
   "directory": {
-    "from": "test/temp/sourcePath/",
-    "to": "test/temp/destinationPath/"
+    "from": "tests/temp/sourcePath/",
+    "to": "tests/temp/destinationPath/"
   }
 }

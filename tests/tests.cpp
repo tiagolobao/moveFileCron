@@ -5,14 +5,14 @@ int main(){
 
   std::cout << "Starting tests..." << std::endl;
 
-  std::cout << "mvc::wait() function test" << std::endl;
+  std::cout << std::endl << "mvc::wait() function test" << std::endl;
   tests::wait();
 
-  std::cout << "mvc::move() function test" << std::endl;
-  // tests::move();
+  std::cout << std::endl << "mvc::move() function test" << std::endl;
+  tests::move();
 
-  std::cout << "mvc::getFileList() function test" << std::endl;
-  // tests::getFileList();
+  std::cout << std::endl << "mvc::getFileList() function test" << std::endl;
+  tests::getFileList();
 
   std::cout << "Done!" << std::endl;
   return 0;

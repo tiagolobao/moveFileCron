@@ -6,6 +6,7 @@
 #include <chrono>
 #include <regex>
 #include <iostream>
+#include <fstream>
 
 /* source of test functions */
 #include "../../inc/functions.hpp"
@@ -28,5 +29,26 @@ namespace tests{
   void getFileList();
 
   void move();
+
+  /**********************************************************
+    Function gen_random
+    @arg =>
+      (int) length of the string to be generated
+    @return => (std::string) random string
+     This function searchs for files in a directory that matches a regex
+  ********************************************************/
+  inline std::string gen_random(const int len) {
+    static const char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+    std::string s;
+
+    for (int i = 0; i < len; ++i) {
+        s.push_back( alphanum[rand() % (sizeof(alphanum) - 1)] );
+    }
+
+    return s;
+}
 
 }
