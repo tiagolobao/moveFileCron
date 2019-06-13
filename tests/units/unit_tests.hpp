@@ -44,6 +44,7 @@ namespace tests{
         "abcdefghijklmnopqrstuvwxyz";
     std::string s;
 
+    srand(time(0));
     for (int i = 0; i < len; ++i) {
         s.push_back( alphanum[rand() % (sizeof(alphanum) - 1)] );
     }
