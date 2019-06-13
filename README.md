@@ -1,5 +1,6 @@
 
 
+
 # moveFileCron
 IFE Coding Challange.
 (P.S. MVC is not Model-View-Controller in this context)
@@ -10,7 +11,7 @@ Transfer files between directories based on the filename. Checked with Regex and
 
 * Compile
 ```bash
-cd path/to/source #change directory
+cd path/to/sourceCode/moveFileCron #change directory
 cmake . #create make file
 make #compile
 ```
@@ -52,6 +53,15 @@ Any valid regex expression for standard C++ library std::regex
 
 * From (std::string) => Source directory.
 * To (std::string)  => Destination directory
+
+## How to run tests
+The prompt will show all  tested functions and if its working well by the default test cases.
+```bash
+cd path/to/sourceCode/moveFileCron/tests #change directory to tests
+cmake . #create make file
+make #compile
+./tests
+```
 
 ## Third party software
 * [CMake](https://cmake.org/)
