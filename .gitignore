@@ -1,6 +1,7 @@
 #Project Files
 mvc
-test/temp/*
+tests/temp/*
+tests/tests
 config.json
 
 #CMake files
