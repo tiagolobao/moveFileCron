@@ -104,3 +104,52 @@ void mvc::move(std::string source, std::string destination, std::string fileName
 
   return;
 }
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+bool mvc::verifyConfigVar(nlohmann::json j){
+
+  try{
+
+    /* MODE ARGUMENT */
+    if( !j["mode"].is_string() )
+      throw std::invalid_argument( "Invalid or inexistent mode argument" );
+    /* REGEX ARGUMENT */
+    if( !j["regex"].is_string() )
+      throw std::invalid_argument( "Invalid or inexistent regex argument" );
+
+    /* TIME ARGUMENT */
+    if( !j["time"].is_number() ){
+      throw std::invalid_argument( "Invalid or inexistent time argument" );
+    }
+    else{
+      int test = j["time"];
+      if( j["time"] != test )
+        throw std::invalid_argument( "Time is not an integer" );
+    }
+
+    /* DIRECTORY ARGUMENT */
+    if( !j["directory"].is_object() ){
+      throw std::invalid_argument( "Invalid or inexistent directory argument" );
+    }
+    else{
+      if( !j["directory"]["from"].is_string() )
+        throw std::invalid_argument( "Invalid or inexistent source directory argument" );
+      if( !fs::exists( (std::string) j["directory"]["from"] ) )
+        throw std::invalid_argument( "source directory does not exists" );
+      if( !j["directory"]["to"].is_string() )
+        throw std::invalid_argument( "Invalid or inexistent destination directory argument" );
+      if( !fs::exists( (std::string) j["directory"]["to"] ) )
+        throw std::invalid_argument( "destination directory does not exists" );
+    }
+
+  } catch ( const std::invalid_argument& e ){
+    std::cout
+      << "Config file error => "
+      << e.what()
+      << std::endl;
+    return false;
+  }
+
+  return true;
+}

@@ -16,6 +16,10 @@ int main(){
   std::ifstream ifile("config.json");
   nlohmann::json config;
   ifile >> config;
+
+  /* Exceptions treatment */
+  if( !mvc::verifyConfigVar(config) ) exit(1);
+
   std::cout << "Time set to " << config["time"] << " seconds" << std::endl;
 
   /* operation mode selection */

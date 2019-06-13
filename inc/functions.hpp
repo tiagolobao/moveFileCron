@@ -10,6 +10,8 @@
 #include <regex>
 #include <iostream>
 
+/* Third party libraries */
+#include "json.hpp"
 /* Third party filesystem library */
 #if defined(__cplusplus) && __cplusplus >= 201703L && defined(__has_include) && __has_include(<filesystem>)
 #include <filesystem>
@@ -71,6 +73,16 @@ namespace mvc{
      This function moves a file from one directory to another
   ********************************************************/
   void move(std::string source, std::string destination, std::string fileName);
+
+  /**********************************************************
+    Function verifyConfigVar
+    @arg =>
+      (nlohmann::json) parsed config file
+    @return => (bool) true if was succesful
+     Verify if all config parameters is given in the right types. Makes easier
+     to fix errors.
+  ********************************************************/
+  bool verifyConfigVar(nlohmann::json j);
 }
 
 #endif
