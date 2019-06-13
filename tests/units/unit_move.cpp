@@ -21,7 +21,7 @@ void tests::move(){
   }
 
   //Create file in source with a random filename
-  std::string filename = tests::gen_random(5);
+  std::string filename = tests::gen_random_string(5);
   std::cout << filename << std::endl;
   if( !fs::exists( source + filename ) ){
     std::ofstream ofs( fs::path( source + filename ) );

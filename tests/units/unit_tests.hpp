@@ -31,20 +31,30 @@ namespace tests{
   void move();
 
   /**********************************************************
-    Function gen_random
+    Function gen_random_number
+    @arg =>
+      (int) max value
+    @return => (int) random number between 0 and the max value
+  ********************************************************/
+  inline int get_random_int(int max){
+    srand(static_cast<unsigned int>(std::time(nullptr)));
+    return (rand() % ++max);
+  }
+
+  /**********************************************************
+    Function gen_random_string
     @arg =>
       (int) length of the string to be generated
     @return => (std::string) random string
-     This function searchs for files in a directory that matches a regex
   ********************************************************/
-  inline std::string gen_random(const int len) {
+  inline std::string gen_random_string(const int len) {
     static const char alphanum[] =
         "0123456789"
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         "abcdefghijklmnopqrstuvwxyz";
     std::string s;
 
-    srand(time(0));
+    srand(static_cast<unsigned int>(std::time(nullptr)));
     for (int i = 0; i < len; ++i) {
         s.push_back( alphanum[rand() % (sizeof(alphanum) - 1)] );
     }

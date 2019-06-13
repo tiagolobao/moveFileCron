@@ -14,6 +14,6 @@ int main(){
   std::cout << std::endl << "mvc::getFileList() function test" << std::endl;
   tests::getFileList();
 
-  std::cout << "Done!" << std::endl;
+  std::cout << std::endl << " TEST DONE!" << std::endl;
   return 0;
 }
